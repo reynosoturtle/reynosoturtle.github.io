@@ -83,6 +83,7 @@ body {
             <div>Looping Horizontal Scroll</div>
         </div>
     </div>
+
     <script type="text/javascript">
     var page = document.getElementById('page');
     var last_pane = page.getElementsByClassName('pane');
@@ -103,17 +104,17 @@ body {
         }
     }
     // Adjust the body height if the window resizes.
-    window.onresize = resize;
+    // window.onresize = resize;
     // Initial resize.
-    resize();
+    // resize();
 
     // Reset window-based vars
-    function resize() {
-        var w = page.scrollWidth - window.innerWidth + window.innerHeight;
-        document.body.style.height = w + 'px';
+    // function resize() {
+    //     var w = page.scrollWidth - window.innerWidth + window.innerHeight;
+    //     document.body.style.height = w + 'px';
 
-        dummy_x = last_pane.getBoundingClientRect().left + window.scrollY;
-    }
+    //     dummy_x = last_pane.getBoundingClientRect().left + window.scrollY;
+    // }
     </script>
 </body>
 
