@@ -3,66 +3,14 @@
 
 <head>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title></title>
 </head>
-<style type="text/css">
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 14em;
-}
-
-body {
-    overflow-x: hidden;
-    color: #FFF;
-    font-family: Helvetica;
-    font-size: 200%;
-}
-
-#page {
-    overflow: hidden;
-    white-space: nowrap;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #CCC;
-    display: flex;
-    flex-wrap: no-wrap;
-}
-
-.pane {
-    flex: 0 0 100vw;
-    height: 100vh;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background-color: #45CCFF;
-}
-
-.pane:nth-child(4n+2) {
-    background-color: #49E83E;
-}
-
-.pane:nth-child(4n+3) {
-    background-color: #EDDE05;
-}
-
-.pane:nth-child(4n+4) {
-    background-color: #E84B30;
-}
-
-.pane:last-child {
-    background-color: #45CCFF;
-}
-</style>
 
 <body>
-    <h1>testing is a good day to cry testing</h1>
     <div id="page">
         <div class="pane">
-            <div>Looping Horizontal Scroll</div>
+            <div>Hi, my name is Christian.<br>I'm a developer with design skills.</div>
         </div>
         <div class="pane">
             <div>2</div>
@@ -77,45 +25,14 @@ body {
             <div>5</div>
         </div>
         <div class="pane">
-            <div>Last</div>
+            <div>Looping to the next</div>
         </div>
         <div class="pane">
-            <div>Looping Horizontal Scroll</div>
+            <div>Hi, my name is Christian.<br>I'm a developer with design skills.</div>
         </div>
     </div>
 
-    <script type="text/javascript">
-    var page = document.getElementById('page');
-    var last_pane = page.getElementsByClassName('pane');
-    last_pane = last_pane[last_pane.length - 1];
-    var dummy_x = null;
-
-    window.onscroll = function() {
-        // Horizontal Scroll.
-        var y = document.body.getBoundingClientRect().top;
-        page.scrollLeft = -y;
-
-        // Looping Scroll.
-        var diff = window.scrollY - dummy_x;
-        if (diff > 0) {
-            window.scrollTo(0, diff);
-        } else if (window.scrollY == 0) {
-            window.scrollTo(0, dummy_x);
-        }
-    }
-    // Adjust the body height if the window resizes.
-    // window.onresize = resize;
-    // Initial resize.
-    // resize();
-
-    // Reset window-based vars
-    // function resize() {
-    //     var w = page.scrollWidth - window.innerWidth + window.innerHeight;
-    //     document.body.style.height = w + 'px';
-
-    //     dummy_x = last_pane.getBoundingClientRect().left + window.scrollY;
-    // }
-    </script>
+    <script src="script.js"type="text/javascript"></script>
 </body>
 
 </html>
