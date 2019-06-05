@@ -33,5 +33,5 @@ function resize() {
 
 window.onbeforeunload = function() {
   console.log('scrolling to')
-  window.scrollTo(1,1);
+  window.scrollTo(2,2);
 }
