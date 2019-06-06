@@ -35,7 +35,7 @@ window.onbeforeunload = function() {
   console.log('scrolling to')
   window.scrollTo(2, 2);
 
-  let count = document.getElementsByClassName('counter').innerHTML;
+  let count = document.getElementsByClassName('counter')[0].innerHTML;
   countRef.update({ counter: count })
 
 }
@@ -62,9 +62,12 @@ var countRef = firebase.database().ref().child('counter');
 
 function updateCount(data) {
   let counter = document.getElementsByClassName('counter');
-  counter.forEach((child)=>{
+  // counter.forEach((child)=>{
+  //   child.innerHTML = data;
+  // })
+  for (let child of counter) {
     child.innerHTML = data;
-  })
+  }
 }
 
 function sendChat() {
