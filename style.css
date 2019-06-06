@@ -38,33 +38,57 @@ body {
 }
 
 #chatbox {
-  width: 400px;
-  height: 400px;
+  width: 360px;
+  height: 360px;
   border: 1px black solid;
   overflow: auto;
+  padding: 20px;
 }
 
-.resetters {
-  position: fixed;
-  top: 50px;
-  left: 50px;
-  z-index: 500;
+.messageBorder {
+  background: lightgrey;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 5px;
+  width: 300px;
 }
 
-/*
-.pane:nth-child(4n+2) {
-    background-color: #ffffff;
+.smol {
+  font-size: 1rem;
 }
 
-.pane:nth-child(4n+3) {
-    background-color: #ffffff;
+.chatboxContainer {
+  position: relative;
+  width: 400px;
+  height: auto;
+  padding: 0;
 }
 
-.pane:nth-child(4n+4) {
-    background-color: #ffffff;
+form {
+  position: absolute;
+  bottom:-1px;
+  left: 1px;
+  width: 100%;
 }
 
-.pane:last-child {
-    background-color: #ffffff;
+button {
+  height: 45px;
+  width: 17%;
+  display: inline-block;
+  float: right;
 }
-*/
+
+input {
+  height: 40px;
+  display: inline-block;
+  margin: 0;
+  float: left;
+}
+
+input#name {
+  width: 20%;
+}
+
+input#message {
+  width: 60%;
+}

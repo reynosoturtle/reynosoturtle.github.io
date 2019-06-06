@@ -62,9 +62,6 @@ var countRef = firebase.database().ref().child('counter');
 
 function updateCount(data) {
   let counter = document.getElementsByClassName('counter');
-  // counter.forEach((child)=>{
-  //   child.innerHTML = data;
-  // })
   for (let child of counter) {
     child.innerHTML = data;
   }
@@ -91,8 +88,8 @@ function updateChat() {
 
   chatRef.on('value', function(snapshot) {
     snapshot.forEach((message) => {
-      let child = document.createElement('p')
-      child.innerHTML = message.val().name + ": " + message.val().message;
+      let child = document.createElement('div')
+      child.innerHTML = "<span class='smol'>" + message.val().name + ":</span> <span class='smol messageBorder'>" + message.val().message + "</span>";
       chatbox.appendChild(child);
     })
   })
