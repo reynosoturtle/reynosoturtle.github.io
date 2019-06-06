@@ -64,7 +64,7 @@ function updateCount(data) {
   let counter = document.getElementsByClassName('counter');
   counter.forEach((child)=>{
     child.innerHTML = data;
-  }
+  })
 }
 
 function sendChat() {
