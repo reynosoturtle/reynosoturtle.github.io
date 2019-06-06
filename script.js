@@ -34,76 +34,83 @@ function resize() {
 window.onbeforeunload = function() {
   console.log('scrolling to')
   window.scrollTo(2, 2);
+
+  let count = document.getElementById('counter').innerHTML;
+  countRef.update({ counter: count })
+
 }
 
-function updateCount() {
+
+
+
+// Your web app's Firebase configuration
+var firebaseConfig = {
+  apiKey: "AIzaSyBjAfxyfDFb5iJEF11uyRg7REun0LMrnpo",
+  authDomain: "https://ghpages-d0741.firebaseio.com/",
+  databaseURL: "https://ghpages-d0741.firebaseio.com",
+  projectId: "ghpages-d0741",
+  storageBucket: "ghpages-d0741.appspot.com",
+  messagingSenderId: "628106415889",
+  appId: "1:628106415889:web:95d44420c93a7975"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+var chatRef = firebase.database().ref().child('chat');
+var countRef = firebase.database().ref().child('counter');
+
+function updateCount(data) {
   let counter = document.getElementById('counter');
-  counter.innerHTML = localStorage.getItem('counter');
+  counter.innerHTML = data;
 }
 
 function sendChat() {
   event.preventDefault()
-  let chat = JSON.parse(localStorage.getItem('chat'))
-  console.log(chat)
+
   let messageInput = document.getElementById('message').value;
   let nameInput = document.getElementById('name').value;
   let chatbox = document.getElementById('chatbox');
 
   let obj = { name: nameInput, message: messageInput }
+  console.log("obj", obj)
+  chatRef.push().set({name: nameInput, message: messageInput})
 
-  chat.push(obj)
-  localStorage.setItem('chat', JSON.stringify(chat))
   updateChat();
 }
 
 function updateChat() {
-  let chat = JSON.parse(localStorage.getItem('chat'));
-  let chatbox = document.getElementById('chatbox');
 
+  let chatbox = document.getElementById('chatbox');
   chatbox.innerHTML = "";
 
-  chat.forEach((message) => {
-    let child = document.createElement('p')
-    child.innerHTML = message.name + ": " + message.message;
-    chatbox.appendChild(child);
+  chatRef.on('value', function(snapshot) {
+    snapshot.forEach((message) => {
+      let child = document.createElement('p')
+      child.innerHTML = message.val().name + ": " + message.val().message;
+      chatbox.appendChild(child);
+    })
   })
 
   chatbox.scrollTop = chatbox.scrollHeight;
 }
 
+updateChat();
+
 window.onload = function() {
   // counter logic
-  let count = localStorage.getItem('counter')
-  if (count == null) {
-    localStorage.setItem('counter', '1');
-  } else {
+  countRef.on('value', function(snapshot) {
+    let count = null;
+    count = snapshot.val().counter;
     count++;
-    localStorage.setItem('counter', count);
-  }
-  updateCount();
+    updateCount(count);
+  });
 
   // chat???
-  let chat = localStorage.getItem('chat')
-  if (chat == null) {
-    localStorage.setItem('chat', JSON.stringify([]))
-  }
-  console.log(chat)
-  if (chat.length > 0) {
-    updateChat();
-  }
-}
+  let chat = null;
 
-function resetChat() {
-    localStorage.setItem('chat', JSON.stringify([]))
-    updateChat();
-}
-
-function resetCount() {
-  localStorage.setItem('counter', '1')
-  updateCount();
-}
-
-function resetAll() {
-  resetCount();
-  resetChat();
+  chatRef.on('value', function(snapshot) {
+    chat = snapshot.val();
+    console.log("after req chat", chat)
+  })
 }
