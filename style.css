@@ -1,8 +1,8 @@
 body {
-    overflow-x: hidden;
-    color: black;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+  overflow-x: hidden;
+  /*color: white;*/
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
 }
 
 .courier {
@@ -14,27 +14,27 @@ body {
 }
 
 #page {
-    overflow: hidden;
-    white-space: nowrap;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #CCC;
-    display: flex;
-    flex-wrap: no-wrap;
+  overflow: hidden;
+  white-space: nowrap;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #CCC;
+  display: flex;
+  flex-wrap: no-wrap;
 }
 
 .pane {
-    flex: 0 0 100vw;
-    height: 100vh;
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    border-right: 1px solid black;
+  flex: 0 0 100vw;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-right: 1px solid black;
 }
 
 #chatbox {
@@ -66,7 +66,7 @@ body {
 
 form {
   position: absolute;
-  bottom:-1px;
+  bottom: -45px;
   left: 1px;
   width: 100%;
 }
@@ -91,4 +91,43 @@ input#name {
 
 input#message {
   width: 60%;
+}
+
+.blend {
+  mix-blend-mode: darken;
+  color: black;
+}
+
+img.center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ########################
+#      SCROLLBAR SHIT     #
+######################## */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border: 0.5px solid lightgrey;
+}
+
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track:horizontal {
+  background: grey;
+}
+
+::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-track-piece:horizontal {
+  background: lightgrey;
+}
+
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:horizontal {
+  background: black;
+}
+
+::-webkit-scrollbar-corner, ::-webkit-scrollbar-button, ::-webkit-resizer {
+  display: none;
 }

@@ -3,8 +3,6 @@ var last_pane = page.getElementsByClassName('pane');
 last_pane = last_pane[last_pane.length - 1];
 var dummy_x = null;
 
-console.log('redy')
-
 window.onscroll = function() {
   // Horizontal Scroll.
   var y = document.body.getBoundingClientRect().top;
@@ -35,13 +33,11 @@ window.onbeforeunload = function() {
   console.log('scrolling to')
   window.scrollTo(2, 2);
 
+
   let count = document.getElementsByClassName('counter')[0].innerHTML;
   countRef.update({ counter: count })
 
 }
-
-
-
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -76,7 +72,7 @@ function sendChat() {
 
   let obj = { name: nameInput, message: messageInput }
   console.log("obj", obj)
-  chatRef.push().set({name: nameInput, message: messageInput})
+  chatRef.push().set({ name: nameInput, message: messageInput })
 
   updateChat();
 }
