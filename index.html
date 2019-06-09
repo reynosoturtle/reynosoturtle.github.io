@@ -2,9 +2,12 @@
 <html>
 
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2d52e3f5ef.js"></script>
   <link href="style.css" rel="stylesheet" type="text/css">
-  <meta name="viewport" content="height=device-height">
+  <!-- <meta name="viewport" content="height=device-height"> -->
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1, width=device-width, target-densitydpi=device-dpi">
   <meta charset="UTF-8">
   <title></title>
 </head>
@@ -12,39 +15,108 @@
 <body>
   <div id="page" class="horizontal_scrolling">
     <div class="pane">
-      <img src="images/me2.png" class="center" width="400">
-      <div class="blend">Hello friend #<span class="counter"></span>,
-        <br>my name is Christian.
-        <br>I'm a <span class="courier">&lt;developer/&gt;</span> with <span class="cursive">design</span> skills.
+      <!-- HOME STUFF -->
+      <div class="home">
+        <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Home</span>
+        <img src="images/p2pscribble.gif" class="center" width="400">
+        <div class="homeTextLeft">
+          Hello friend no. <span class="counter"></span>
+        </div>
+        <div class="homeTextRight">
+          My name is Christian and
+          <br>I'm a developer with a
+          <br>background in design.
+        </div>
+        <div class="homeTextScroll">
+          <span class="smol">
+            Now scroll and witness my feeble
+            attempt in internalizing myself
+            as a person into one website.
+          </span>
+        </div>
       </div>
     </div>
-    <div class="pane">
+
+    <div class="pane long">
+      <ul id="works">
+        <li class="project">
+          <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Works</span>
+          <div class="projectContent">
+            <div class="lineBoth">
+              <span class="testNumber">01.</span>
+              <span class="testTitle">Dullah Bills</span>
+              <span class="testDescription">Progressive Web Application<span class="testArrow">></span></span>
+            </div>
+            <div class="line">
+              <span class="testNumber">02.</span>
+              <span class="testTitle">Quick Pint</span>
+              <span class="testDescription">Web Application<span class="testArrow">></span></span>
+            </div>
+            <div class="line">
+              <span class="testNumber">03.</span>
+              <span class="testTitle">Ticket</span>
+              <span class="testDescription">Web Application<span class="testArrow">></span></span>
+            </div>
+            <div class="line">
+              <span class="testNumber">04.</span>
+              <span class="testTitle">Retro Arcade</span>
+              <span class="testDescription">Static Web Game<span class="testArrow">></span></span>
+            </div>
+            <div class="line">
+              <span class="testNumber">05.</span>
+              <span class="testTitle">LKC@NHM</span>
+              <span class="testDescription">Ambient Ad Design<span class="testArrow">></span></span>
+            </div>
+            <div class="line">
+              <span class="testNumber">06.</span>
+              <span class="testTitle">Loue Bicycles</span>
+              <span class="testDescription">Website Design<span class="testArrow">></span></span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="pane" style="flex: 0 0 1450px;">
+      <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Some sh*t literally nobody asked for</span>
       <div class="chatboxContainer">
-        <div class="blend">some chat shit</div>
         <div id="chatbox"></div>
         <form>
-          <input type="text" name="name" id="name" placeholder="who u be fam" />
-          <input type="text" name="message" id="message" placeholder="be nice ya" />
-          <button onclick="sendChat()">Click</button>
+          <input type="text" name="name" id="name" placeholder="Name" />
+          <input type="text" name="message" id="message" placeholder="Say something nice" />
+          <button onclick="sendChat()">Send</button>
         </form>
       </div>
     </div>
     <div class="pane">
-      <img src="images/me2.png" class="center" width="400">
-      <div style="z-index: 1;" class="blend">Hello friend #<span class="counter"></span>,
-        <br>my name is Christian.
-        <br>I'm a <span class="courier">&lt;developer/&gt;</span> with <span class="cursive">design</span> skills.
+      <div class="home">
+        <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Home</span>
+        <img src="images/p2pscribble.gif" class="center" width="400">
+        <div class="homeTextLeft">
+          Hello friend no. <span class="counter"></span>
+        </div>
+        <div class="homeTextRight">
+          My name is Christian and
+          <br>I'm a developer with a
+          <br>background in design.
+        </div>
+        <div class="homeTextScroll">
+          <span class="smol">
+            Now scroll and witness my feeble
+            attempt in internalizing myself
+            as a person into one website.
+          </span>
+        </div>
       </div>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
     </div>
   </div>
   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-database.js"></script>
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
   </script>
   <script src="https://aerolab.github.io/midnight.js/midnight.jquery.min.js"></script>
   <script src="script.js" type="text/javascript"></script>

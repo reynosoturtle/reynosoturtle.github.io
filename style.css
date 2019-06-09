@@ -1,16 +1,7 @@
 body {
   overflow-x: hidden;
-  /*color: white;*/
   font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-}
-
-.courier {
-  font-family: Courier;
-}
-
-.cursive {
-  font-family: cursive;
+  font-size: 1.5rem;
 }
 
 #page {
@@ -21,61 +12,125 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #CCC;
+  background-color: beige;
   display: flex;
   flex-wrap: no-wrap;
+  /*border: blue 1px solid;*/
 }
 
 .pane {
   flex: 0 0 100vw;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   position: relative;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  border-right: 1px solid black;
+  background-color: beige;
+  margin-top: 5vh;
+  /*border: red 1px solid;*/
+}
+
+.aside {
+  position: absolute;
+  top: 0;
+  margin-left: 70px;
+  background: none;
+  transform-origin: 0 0;
+  transform: rotate(90deg);
+  font-family: 'Lora', serif;
+  font-size: 0.7rem;
+  width: 90vh;
+  padding-bottom: 15px;
+  border-bottom: 1px solid grey;
+}
+
+.home {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: inherit;
+  width: 1430px;
+  /*border: green 1px solid;*/
+}
+
+.long {
+  flex: 0 0 710px;
+}
+
+#works {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0;
+  z-index: 50;
+  list-style: none;
+}
+
+.project {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  /*border: 1px solid red;*/
+  margin: 0 50px 0 0;
+  width: 1050px;
+  height: 90vh;
 }
 
 #chatbox {
-  width: 360px;
-  height: 360px;
+  width: 400px;
+  height: 100%;
   border: 1px black solid;
   overflow: auto;
   padding: 20px;
+  padding-bottom: 65px;
+  padding-top: 0;
+  box-sizing: border-box;
+  background: white;
 }
 
 .messageBorder {
-  background: lightgrey;
-  border: 1px solid black;
-  border-radius: 6px;
+  border-bottom: 1px solid grey;
   padding: 5px;
-  width: 300px;
-}
+  padding-bottom: 20px;
+  width: 97%;
 
-.smol {
+  font-family: 'Lora', serif;
   font-size: 1rem;
+  margin: 15px 5px 15px 0;
 }
 
 .chatboxContainer {
   position: relative;
   width: 400px;
-  height: auto;
+  height: inherit;
   padding: 0;
+  /*border: 1px solid blue;*/
+}
+
+.smol {
+  font-family: 'Lora', serif;
+  font-size: 0.7rem;
+  margin: 15px 5px 15px 0;
 }
 
 form {
   position: absolute;
-  bottom: -45px;
+  bottom: 0;
   left: 1px;
   width: 100%;
 }
 
 button {
-  height: 45px;
-  width: 17%;
-  display: inline-block;
-  float: right;
+  position: absolute;
+  right: 1px;
+  bottom: -1px;
+  height: 44px;
+  width: 60px;
+  border: 1px solid grey;
+  background: lightgrey;
 }
 
 input {
@@ -83,26 +138,117 @@ input {
   display: inline-block;
   margin: 0;
   float: left;
+  border: 1px grey solid;
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: none;
 }
 
 input#name {
   width: 20%;
+  max-width: 80px;
+  transform: translate(-1px, 1px);
 }
 
 input#message {
   width: 60%;
+  max-width: 240px;
+  transform: translate(-2px, 1px);
 }
 
-.blend {
-  mix-blend-mode: darken;
-  color: black;
+.homeTextLeft {
+  position: absolute;
+  left: 210px;
+  top: 110px;
+  width: 200px;
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: 700;
+  /*border: 1px solid blue;*/
 }
 
-img.center {
+.homeTextRight {
+  position: absolute;
+  left: 915px;
+  top: 450px;
+  width: 320px;
+  /*border: 1px solid blue;*/
+}
+
+.homeTextScroll {
+  position: absolute;
+  right: 50px;
+  bottom: 0px;
+  width: 200px;
+  white-space: normal;
+  /*border: 1px solid blue;*/
+  font-size: 0.7rem;
+  line-height: 1rem;
+  display: inline-block;
+}
+
+.projectContent {
+  position: absolute;
+  left: 670px;
+  top: 60px;
+}
+
+/*.projectsTitle {
+  max-width: 350px;
+  font-family: 'Lora', serif;
+  font-size: 5.5rem;
+  font-weight: 700;
+  line-height: 0rem;
+  margin-left: -5px;
+}
+
+.projectsSubtitle {
+  max-width: 350px;
+  font-size: 1rem;
+}
+
+.projectsDetailsHeader {
+  font-size: 1rem;
+}
+
+.projectsDetailsContent {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  list-style: none;
+  padding-left: 5px;
+  margin: 0;
+  margin-bottom: 20px;
+  font-style: italic;
+}*/
+
+.underline {
+  text-decoration: underline;
+}
+
+.center {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.left {
+  position: absolute;
+  left: 15%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+img {
+  filter: saturate(20%);
+  mix-blend-mode: multiply;
+}
+
+.normal {
+  filter: saturate(100%);
+  mix-blend-mode: normal;
 }
 
 /* ########################
@@ -110,24 +256,100 @@ img.center {
 ######################## */
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-  background: white;
-  border: 0.5px solid lightgrey;
+  display: none;
 }
 
-::-webkit-scrollbar-track, ::-webkit-scrollbar-track:horizontal {
-  background: grey;
+div::-webkit-scrollbar {
+  display: block;
+  width: 3px;
 }
 
-::-webkit-scrollbar-track-piece, ::-webkit-scrollbar-track-piece:horizontal {
-  background: lightgrey;
-}
-
-::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:horizontal {
+div::-webkit-scrollbar-thumb {
   background: black;
 }
 
-::-webkit-scrollbar-corner, ::-webkit-scrollbar-button, ::-webkit-resizer {
-  display: none;
+div::-webkit-scrollbar-track-piece {
+  background: lightgrey;
+}
+
+/* The progress container (grey background) */
+.progress-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  width: 100%;
+  height: 10px;
+  background: lightgrey;
+  border-top: black 1px solid;
+}
+
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 10px;
+  background: black;
+  width: 0%;
+}
+
+
+
+.lineBoth {
+  width: 100%;
+  border-top: 1px grey solid;
+  border-bottom: 1px grey solid;
+  padding: 10px;
+}
+
+.lineBoth:hover,
+.line:hover {
+  background: white;
+}
+
+.line {
+  width: 100%;
+  border-bottom: 1px grey solid;
+  padding: 10px;
+}
+
+.testNumber {
+  font-size: 0.6rem;
+  line-height: 80px;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+.testTitle {
+  font-size: 2.5rem;
+  line-height: 80px;
+  vertical-align: middle;
+  margin-left: 40px;
+}
+
+.testFloatRight {
+  display: inline;
+}
+
+.testDescription {
+  font-size: 0.6rem;
+  line-height: 80px;
+  vertical-align: middle;
+  margin-left: 340px;
+  float: right;
+}
+
+.testArrow {
+  font-size: 1.3rem;
+  line-height: 80px;
+  vertical-align: middle;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: right;
+}
+
+.projectContent {
+  position: absolute;
+  left: 150px;
+  top: 50%;
+  transform: translateY(-50%);
 }

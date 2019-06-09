@@ -15,10 +15,15 @@ window.onscroll = function() {
   } else if (window.scrollY == 0) {
     window.scrollTo(0, dummy_x);
   }
+
+  //scrollbar shit
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
 }
 // Adjust the body height if the window resizes.
 window.onresize = resize;
-// Initial resize.
 resize();
 
 // Reset window-based vars
@@ -30,9 +35,7 @@ function resize() {
 }
 
 window.onbeforeunload = function() {
-  console.log('scrolling to')
   window.scrollTo(2, 2);
-
 
   let count = document.getElementsByClassName('counter')[0].innerHTML;
   countRef.update({ counter: count })
@@ -85,12 +88,12 @@ function updateChat() {
   chatRef.on('value', function(snapshot) {
     snapshot.forEach((message) => {
       let child = document.createElement('div')
-      child.innerHTML = "<span class='smol'>" + message.val().name + ":</span> <span class='smol messageBorder'>" + message.val().message + "</span>";
+      child.innerHTML = "<div class='messageBorder'><span>" + message.val().name + ":</span> <span>" + message.val().message + "</span></div>";
       chatbox.appendChild(child);
+      chatbox.scrollTop = chatbox.scrollHeight;
     })
   })
 
-  chatbox.scrollTop = chatbox.scrollHeight;
 }
 
 updateChat();
