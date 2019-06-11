@@ -234,6 +234,13 @@ input#message {
   transform: translate(-50%, -50%);
 }
 
+.scribble {
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+}
+
 .left {
   position: absolute;
   left: 15%;
@@ -355,7 +362,7 @@ div::-webkit-scrollbar-track-piece {
 }
 
 .aboutMe {
-  width: 380px;
+  width: 400px;
   white-space: normal;
   font-size: 1rem;
 }
