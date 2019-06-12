@@ -2,6 +2,7 @@ body {
   overflow-x: hidden;
   font-family: 'Playfair Display', serif;
   font-size: 1.5rem;
+  overscroll-behavior: none;
 }
 
 #page {
@@ -49,8 +50,7 @@ body {
   left: 0;
   top: 0;
   height: inherit;
-  width: 1430px;
-  /*border: green 1px solid;*/
+  width: 950px;
 }
 
 .long {
@@ -68,16 +68,6 @@ body {
   list-style: none;
 }
 
-#about {
-  position: absolute;
-  left: 366px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 50;
-  height: inherit;
-  width: 100%;
-}
-
 .project {
   position: absolute;
   top: 50%;
@@ -89,175 +79,63 @@ body {
   height: 90vh;
 }
 
-#chatbox {
-  width: 400px;
-  height: 100%;
-  border: 1px black solid;
-  overflow: auto;
-  /*padding: 20px;*/
-  padding-bottom: 65px;
-  padding-top: 0;
-  box-sizing: border-box;
-  background: white;
-}
-
-.messageBorder {
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  width: inherit;
-  font-family: 'Lora', serif;
-  font-size: 1rem;
-  margin: 0;
-}
-
-.chatboxContainer {
-  position: relative;
-  width: 400px;
-  height: 100%;
-  padding: 0;
-  /*border: 1px solid blue;*/
-}
-
 .smol {
   font-family: 'Lora', serif;
   font-size: 0.7rem;
   margin: 15px 5px 15px 0;
 }
 
-form {
+.title {
   position: absolute;
-  bottom: 0;
-  left: 1px;
-  width: 100%;
-}
-
-button {
-  position: absolute;
-  right: 1px;
-  bottom: -1px;
-  height: 44px;
-  width: 60px;
-  border: 1px solid grey;
-  background: lightgrey;
-}
-
-input {
-  height: 40px;
-  display: inline-block;
-  margin: 0;
-  float: left;
-  border: 1px grey solid;
-  padding-left: 10px;
-}
-
-input:focus {
-  outline: none;
-}
-
-input#name {
-  width: 20%;
-  max-width: 80px;
-  transform: translate(-1px, 1px);
-}
-
-input#message {
-  width: 60%;
-  max-width: 240px;
-  transform: translate(-2px, 1px);
-}
-
-.homeTextLeft {
-  position: absolute;
-  left: 210px;
-  top: 110px;
+  left: 150px;
+  top: 0px;
   width: 200px;
-  font-size: 3rem;
+  font-size: 6rem;
   font-style: italic;
   font-weight: 700;
+  line-height: 6rem;
   /*border: 1px solid blue;*/
 }
 
-.homeTextRight {
+.details {
   position: absolute;
-  left: 915px;
-  top: 450px;
-  width: 320px;
-  /*border: 1px solid blue;*/
-}
-
-.homeTextScroll {
-  position: absolute;
-  right: 50px;
-  bottom: 0px;
-  width: 200px;
+  left: 350px;
+  top: 200px;
+  width: 600px;
+  font-size: 0.9rem;
+  height: auto;
   white-space: normal;
   /*border: 1px solid blue;*/
-  font-size: 0.7rem;
-  line-height: 1rem;
-  display: inline-block;
 }
 
-.projectContent {
+ul {
+  list-style: none;
+}
+
+#container {
   position: absolute;
-  left: 670px;
-  top: 60px;
+  left: 70px;
+  top: 220px;
+  font-size: 0.8rem;
+  list-style: none;
+}
+
+.container-child {
+  margin-bottom: 50px;
+}
+
+a {
+  color: black;
+}
+
+p.header {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 700;
 }
 
 .underline {
   text-decoration: underline;
-}
-
-.center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.scribble {
-  position: absolute;
-  left: 50%;
-  top: 150px;
-  transform: translateX(-50%);
-}
-
-.me {
-  position: absolute;
-  left: 150px;
-  top: 40px;
-}
-
-.me-arrow {
-  position: absolute;
-  left: 450px;
-  top: 150px;
-  transform: rotate(170deg);
-}
-
-.left {
-  position: absolute;
-  left: 15%;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
-img {
-  filter: saturate(50%);
-  mix-blend-mode: multiply;
-  transition: all 0.5s ease;
-}
-
-img:hover {
-  filter: saturate(100%);
-  mix-blend-mode: normal;
-  transition: all 0.5s ease;
-}
-
-.normal {
-  filter: saturate(100%);
-  mix-blend-mode: normal;
 }
 
 /* ########################
@@ -362,48 +240,4 @@ div::-webkit-scrollbar-track-piece {
   left: 150px;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.aboutMe {
-  position: absolute;
-  top: 450px;
-  left: 150px;
-  width: 600px;
-  white-space: normal;
-  font-size: 1rem;
-}
-
-.iz-me {
-  position: absolute;
-  top: 200px;
-  left: 500px;
-  width: 250px;
-  white-space: normal;
-  font-size: 0.8rem;
-}
-
-#typeCursor {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1px;
-  height: 15px;
-  background-color: black;
-  animation: blink .75s step-end infinite;
-}
-
-@keyframes blink {
-
-  from,
-  to {
-    background-color: transparent
-  }
-
-  50% {
-    background-color: black;
-  }
-}
-
-a {
-  text-decoration: underline;
-  color: black;
 }

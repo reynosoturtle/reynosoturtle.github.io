@@ -74,23 +74,29 @@ function sendChat() {
   let chatbox = document.getElementById('chatbox');
 
   let obj = { name: nameInput, message: messageInput }
-  console.log("obj", obj)
-  chatRef.push().set({ name: nameInput, message: messageInput })
-
-  updateChat();
+  if (messageInput.length > 0 && nameInput.length > 0) {
+    chatRef.push().set({ name: nameInput, message: messageInput })
+    updateChat();
+    document.getElementById('message').value = "";
+  }
 }
 
 function updateChat() {
 
   let chatbox = document.getElementById('chatbox');
   chatbox.innerHTML = "";
-
+  let i = 1;
   chatRef.on('value', function(snapshot) {
     snapshot.forEach((message) => {
       let child = document.createElement('div')
-      child.innerHTML = "<div class='messageBorder'><span>" + message.val().name + ":</span> <span>" + message.val().message + "</span></div>";
+      if (i % 2 == 0) {
+        child.innerHTML = "<div class='messageBorder' style='background: white;'><span>" + message.val().name + ":</span> <span>" + message.val().message + "</span></div>";
+      } else {
+        child.innerHTML = "<div class='messageBorder' style='background: lightgrey;'><span>" + message.val().name + ":</span> <span>" + message.val().message + "</span></div>";
+      }
       chatbox.appendChild(child);
       chatbox.scrollTop = chatbox.scrollHeight;
+      i++;
     })
   })
 
@@ -112,21 +118,18 @@ window.onload = function() {
 
   chatRef.on('value', function(snapshot) {
     chat = snapshot.val();
-    console.log("after req chat", chat)
+    // console.log("after req chat", chat)
   })
-
-
-  // typeWriter();
 }
 
 //TYPING SHIT
 
 // List of sentences
 var _CONTENT = [
-  'I hate working alone,',
   'I haven’t made my best work yet,',
-  'I’m just lonely,',
   'If you think I do good sh*t,',
+  'I hate working alone,',
+  'I’m just lonely,',
   'If you have too much money,',
   'If you think I’m cute,'
 ];
@@ -149,12 +152,12 @@ var _CURSOR = document.getElementById("typeCursor");
 // Implements typing effect
 function Type() {
   // Get substring with 1 characater added
-  var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
+  var text = _CONTENT[_PART].substring(0, _PART_INDEX + 1);
   _ELEMENT.innerHTML = text;
   _PART_INDEX++;
 
   // If full sentence has been displayed then start to delete the sentence after some time
-  if(text === _CONTENT[_PART]) {
+  if (text === _CONTENT[_PART]) {
     // Hide the cursor
     // _CURSOR.style.display = 'none';
 
@@ -168,16 +171,16 @@ function Type() {
 // Implements deleting effect
 function Delete() {
   // Get substring with 1 characater deleted
-  var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
+  var text = _CONTENT[_PART].substring(0, _PART_INDEX - 1);
   _ELEMENT.innerHTML = text;
   _PART_INDEX--;
 
   // If sentence has been deleted then start to display the next sentence
-  if(text === '') {
+  if (text === '') {
     clearInterval(_INTERVAL_VAL);
 
     // If current sentence was last then display the first one, else move to the next
-    if(_PART == (_CONTENT.length - 1))
+    if (_PART == (_CONTENT.length - 1))
       _PART = 0;
     else
       _PART++;

@@ -41,32 +41,32 @@
         <li class="project">
           <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Works</span>
           <div class="projectContent">
-            <div class="lineBoth">
+            <div class="lineBoth" onClick="window.location.href='dullahbills.html'">
               <span class="testNumber">01.</span>
               <span class="testTitle">Dullah Bills</span>
               <span class="testDescription">Progressive Web Application<span class="testArrow">→</span></span>
             </div>
-            <div class="line">
+            <div class="line" onClick="console.log('quick pint!!!')">
               <span class="testNumber">02.</span>
               <span class="testTitle">Quick Pint</span>
               <span class="testDescription">Web Application<span class="testArrow">→</span></span>
             </div>
-            <div class="line">
+            <div class="line" onClick="console.log('ticket!!!')">
               <span class="testNumber">03.</span>
               <span class="testTitle">Ticket</span>
               <span class="testDescription">Web Application<span class="testArrow">→</span></span>
             </div>
-            <div class="line">
+            <div class="line" onClick="console.log('retroarcade!!!')">
               <span class="testNumber">04.</span>
               <span class="testTitle">Retro Arcade</span>
               <span class="testDescription">Static Web Game<span class="testArrow">→</span></span>
             </div>
-            <div class="line">
+            <div class="line" onClick="console.log('lkc@nhm!!!')">
               <span class="testNumber">05.</span>
               <span class="testTitle">LKC@NHM</span>
               <span class="testDescription">Ambient Ad Design<span class="testArrow">→</span></span>
             </div>
-            <div class="line">
+            <div class="line" onClick="console.log('loue!!!')">
               <span class="testNumber">06.</span>
               <span class="testTitle">Loue Bicycles</span>
               <span class="testDescription">Website Design<span class="testArrow">→</span></span>
@@ -75,25 +75,34 @@
         </li>
       </ul>
     </div>
-    <div class="pane" style="flex: 0 0 1450px;">
-      <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Some sh*t about me</span>
-      <div class="aboutMe">
-        <p>Hey there, my name is Christian Reynoso.
-          My friends call me Chris and so should you, friend. ;)</p>
-        <p>I was born in Philippines, raised in Singapore and looking for opportunities to feel the world. I went to school for graphic design and found myself interested in developing as well, so here I am.</p>
-        <span id="typing"></span><span id="typeCursor"></span><br>
-        <span>you can contact me via <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=christianreynoso96@gmail.com" target="_blank">email</a> if you are looking to collaborate or just wanna say hi that’s cool too.</span>
+    <div class="pane" style="flex: 0 0 1750px;left: 0px;">
+      <div id="about">
+        <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;Some sh*t about me</span>
+        <img src="images/mecolor.jpg" width="300" class="me">
+        <img src="images/arrow.png" width="75" class="me-arrow">
+        <div class="iz-me">
+          <p>hey look at that it’s me!! <span style="font-size: 0.5rem;text-decoration: line-through;">now try to hide your disappointment</span></p>
+          <p>12.12.1996 <span style="font-size: 0.5rem">(thx mom for briging me into this cruel world)</span><br>
+            my bday is still far but you can still give<br>me the gift of employment today</p>
+        </div>
+        <div class="aboutMe">
+          <p>Hey there, my name is Christian Reynoso.
+            My friends call me Chris and so should you, friend. ;)</p>
+          <p>I was born in Philippines, raised in Singapore and looking for opportunities to feel the world. I went to school for graphic design and found myself interested in developing as well, so here I am.</p>
+          <span id="typing"></span><span id="typeCursor"></span><br>
+          <span>you can contact me via <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=christianreynoso96@gmail.com" target="_blank">email</a> if you are looking to collaborate or just wanna say hi that’s cool too.</span>
+        </div>
+        <span class="aside" style="z-index: 50;left:800px;">&nbsp;&nbsp;&nbsp;&nbsp;More sh*t literally nobody asked for</span>
+        <div class="chatboxContainer" style="z-index: 50;left:950px;">
+          <div id="chatbox"></div>
+          <form autocomplete="off">
+            <input type="text" name="name" id="name" placeholder="Name" />
+            <input type="text" name="message" id="message" placeholder="Say something nice" />
+            <button onclick="sendChat()">Send</button>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="pane" style="flex: 0 0 1450px;">
-      <span class="aside">&nbsp;&nbsp;&nbsp;&nbsp;More sh*t literally nobody asked for</span>
-      <div class="chatboxContainer">
-        <div id="chatbox"></div>
-        <form>
-          <input type="text" name="name" id="name" placeholder="Name" />
-          <input type="text" name="message" id="message" placeholder="Say something nice" />
-          <button onclick="sendChat()">Send</button>
-        </form>
+      <div class="pane" style="flex: 0 0 1450px;">
       </div>
     </div>
     <div class="pane">
